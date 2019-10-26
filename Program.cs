@@ -14,11 +14,11 @@ namespace Pyanitsa_Card_Game
             var test = new Deck();
             var test2 = new Gameplay();
 
-            Console.WriteLine("Got deck\n");
-            test.GetGameDeck();
+            //Console.WriteLine("Got deck\n");
+            //test.GetGameDeck();
 
-            Console.WriteLine("\nShuffled deck\n");
-            test.Shuffle();
+            //Console.WriteLine("\nShuffled deck\n");
+            //test.Shuffle();
 
             Console.WriteLine("\nCards given\n");
             test2.DivideDeck();

@@ -13,17 +13,22 @@ namespace Pyanitsa_Card_Game
         public List<Card> Swap = new List<Card>();
 
         Deck deck = new Deck();
+        Card card = new Card();
 
         public void DivideDeck()
         {
-            Player = deck.GameDeck.GetRange(0, deck.GameDeck.Count / 2);
-            //AIplayer = deck.GameDeck.GetRange(18, deck.GameDeck.Count / 2);
+            deck.GetGameDeck();
+            deck.Shuffle();
+            List<Card> ShufDeck = deck.ShuffledDeck;
+            Player = ShufDeck.GetRange(0, ShufDeck.Count / 2);
+            AIplayer = ShufDeck.GetRange(18, ShufDeck.Count/2);
 
             Console.WriteLine("\nPlayer:\n");
             foreach (Card pCards in Player)
             {
-                Console.WriteLine(pCards);
+                Console.WriteLine(card.ShowCard());
             }
+
             Console.WriteLine("\nAI:\n");
             AIplayer.ForEach(Console.WriteLine);
         }

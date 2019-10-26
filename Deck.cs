@@ -9,7 +9,9 @@ namespace Pyanitsa_Card_Game
 {
     public class Deck
     {
-        public List<Card> GameDeck = new List<Card>();
+        public List<Card> GameDeck;
+        public List<Card> ShuffledDeck;
+
 
         public void GetGameDeck()
         {
@@ -39,7 +41,12 @@ namespace Pyanitsa_Card_Game
                 GameDeck[k] = GameDeck[n];
                 GameDeck[n] = card;
             }
+            ShuffledDeck = new List<Card>();
             foreach (Card card in GameDeck)
+            {
+                ShuffledDeck.Add(card);
+            }
+            foreach (Card card in ShuffledDeck)
             {
                 Console.WriteLine(card.ShowCard());
             }
