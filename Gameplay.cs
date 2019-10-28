@@ -33,8 +33,7 @@ namespace Pyanitsa_Card_Game
 
         public void Shuffle()
         {
-            var shuffledDeck = from r in GameDeck orderby Guid.NewGuid() ascending select r;
-            ShuffledDeck = shuffledDeck.ToList();
+            ShuffledDeck = GameDeck.OrderBy(c => Guid.NewGuid()).ToList();
             foreach (Card card in ShuffledDeck)
             {
                 Console.WriteLine(card.ShowCard());
@@ -57,5 +56,6 @@ namespace Pyanitsa_Card_Game
                 Console.WriteLine(aiCards.ShowCard());
             }
         }
+
     }
 }
