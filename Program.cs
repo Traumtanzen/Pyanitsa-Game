@@ -29,6 +29,9 @@ namespace Pyanitsa_Card_Game
             Console.WriteLine("\nCards given\n");
             test2.DivideDeck();
 
+            Console.WriteLine("Let's play Pyanitsa game");
+            test2.Play();
+            
 
 
 
