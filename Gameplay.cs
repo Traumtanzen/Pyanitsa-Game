@@ -3,35 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Pyanitsa_Card_Game.CardEnums;
 
 namespace Pyanitsa_Card_Game
 {
     class Gameplay
     {
+        public List<Card> GameDeck { get; set; }
+        public List<Card> ShuffledDeck { get; set; }
         public List<Card> Player = new List<Card>();
         public List<Card> AIplayer = new List<Card>();
-        public List<Card> Swap = new List<Card>();
+        //public List<Card> Swap = new List<Card>();
 
-        Deck deck = new Deck();
-        Card card = new Card();
+        public void GetGameDeck()
+        {
+            GameDeck = new List<Card>();
+            foreach (Suits suit in Enum.GetValues(typeof(Suits)))
+            {
+                foreach (Faces face in Enum.GetValues(typeof(Faces)))
+                {
+                    GameDeck.Add(new Card { Suit = suit, Face = face });
+                }
+            }
+            foreach (Card card in GameDeck)
+            {
+                Console.WriteLine(card.ShowCard());
+            }
+        }
+
+        public void Shuffle()
+        {
+            var shuffledDeck = from r in GameDeck orderby Guid.NewGuid() ascending select r;
+            ShuffledDeck = shuffledDeck.ToList();
+            foreach (Card card in ShuffledDeck)
+            {
+                Console.WriteLine(card.ShowCard());
+            }
+        }
 
         public void DivideDeck()
         {
-            deck.GetGameDeck();
-            deck.Shuffle();
-            List<Card> ShufDeck = deck.ShuffledDeck;
-            Player = ShufDeck.GetRange(0, ShufDeck.Count / 2);
-            AIplayer = ShufDeck.GetRange(18, ShufDeck.Count/2);
+            Player = ShuffledDeck.GetRange(0, ShuffledDeck.Count / 2);
+            AIplayer = ShuffledDeck.GetRange(18, ShuffledDeck.Count / 2);
 
             Console.WriteLine("\nPlayer:\n");
             foreach (Card pCards in Player)
             {
-                Console.WriteLine(card.ShowCard());
+                Console.WriteLine(pCards.ShowCard());
             }
-
             Console.WriteLine("\nAI:\n");
-            AIplayer.ForEach(Console.WriteLine);
+            foreach (Card aiCards in AIplayer)
+            {
+                Console.WriteLine(aiCards.ShowCard());
+            }
         }
-
     }
 }

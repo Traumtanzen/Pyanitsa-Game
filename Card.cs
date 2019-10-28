@@ -11,11 +11,10 @@ namespace Pyanitsa_Card_Game
     {
         public Suits Suit { get; set; }
         public Faces Face { get; set; }
-        public int Value { get; set; }
 
         public string ShowCard()
         {
-            return $"{Face} of {Suit}, value: {Value}";
+            return $"{Face} of {Suit}";
         }
     }
 }
