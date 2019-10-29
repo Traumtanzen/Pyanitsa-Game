@@ -7,12 +7,12 @@ using static Pyanitsa_Card_Game.CardEnums;
 
 namespace Pyanitsa_Card_Game
 {
-//колода 36 карт, делится пополам
-//сначала тусуется
-//потом по верхней карте открывается
-//большая карта бьет(забирает тот кто побил и кладет вниз)
-//шестерка бьет туза
-//победил тот, у кого вся колода осела
+    //колода 36 карт, делится пополам
+    //сначала тусуется
+    //потом по верхней карте открывается
+    //большая карта бьет(забирает тот кто побил и кладет вниз)
+    //шестерка бьет туза
+    //победил тот, у кого вся колода осела
     class Program
     {
         static void Main(string[] args)
@@ -20,22 +20,20 @@ namespace Pyanitsa_Card_Game
             //var test = new Deck();
             var test2 = new Gameplay();
 
-            Console.WriteLine("Got deck\n");
+            //Console.WriteLine("Got deck\n");
             test2.GetGameDeck();
 
-            Console.WriteLine("\nShuffled deck\n");
+            //Console.WriteLine("\nShuffled deck\n");
             test2.Shuffle();
 
-            Console.WriteLine("\nCards given\n");
+            //Console.WriteLine("\nCards given\n");
             test2.DivideDeck();
 
-            Console.WriteLine("Let's play Pyanitsa game");
+            Console.WriteLine("\nLet's play Pyanitsa game");
             test2.Play();
-            
 
-
-
-            Console.ReadLine();
+            Console.WriteLine("\nPress any key to quit");
+            Console.ReadKey();
         }
     }
 
